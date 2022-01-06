@@ -1,12 +1,20 @@
 package ar.com.educacionit.dao.impl;
 
-import ar.com.educacionit.dao.ICrud;
 import ar.com.educacionit.dao.SociosDao;
 import ar.com.educacionit.domain.Socios;
 
-public class SocioDaoImpl implements SociosDao {
+public class SocioDaoImpl extends JdbcDaoBase<Socios> implements SociosDao {
+
+	public SocioDaoImpl() {
+		super("Socios"); // es la tabla
+	}
+
 	
+	/*
 	public Socios save(Socios socio) {
+		
+		
+		 *
 		//Long id, String nombre, String apellido, String email, String direccion, Long paisesId
 		
 		
@@ -47,8 +55,7 @@ public class SocioDaoImpl implements SociosDao {
 		"SET direccion = 'Alameda170', APELLIDO = 'Rodriguez', paises_id = 2" + 
 		"WHERE id = 1";
 		System.out.println(sql);
-	}
-	
+		 */	
 	/*public Socios selectCustom() {
 		String sql = "select nombre, apellido from socios";
 		System.out.println("Ejecutando sql: " + sql);

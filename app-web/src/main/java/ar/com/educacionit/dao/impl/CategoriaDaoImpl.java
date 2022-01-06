@@ -4,8 +4,13 @@ import ar.com.educacionit.dao.CategoriaDao;
 import ar.com.educacionit.domain.Categorias;
 import ar.com.educacionit.domain.Socios;
 
-public class CategoriaDaoImpl implements CategoriaDao{
+public class CategoriaDaoImpl extends JdbcDaoBase<Categorias> implements CategoriaDao{
 	
+	public CategoriaDaoImpl() {
+		super("Categorias");
+	}
+	
+	/*
 	public Categorias getOne(Long id) {
 		// TODO Auto-generated method stub
 		return null;
@@ -32,5 +37,5 @@ public class CategoriaDaoImpl implements CategoriaDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	*/
 }
