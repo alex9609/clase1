@@ -4,10 +4,11 @@ import ar.com.educacionit.services.CategoriaService;
 import ar.com.educacionit.services.SociosService;
 import ar.com.educacionit.services.Impl.CategoriaServiceImpl;
 import ar.com.educacionit.services.Impl.SociosServicesImpl;
+import ar.com.educacionit.services.exceptions.ServiceException;
 
 public class SociosTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ServiceException {
 		Long id = 1L;
 		String nombre = "Juan";
 		String apellido = "Rodriguez";
