@@ -1,5 +1,7 @@
 package ar.com.educacionit.domain;
 
+import java.util.List;
+
 import ar.com.educacionit.services.CategoriaService;
 import ar.com.educacionit.services.SociosService;
 import ar.com.educacionit.services.Impl.CategoriaServiceImpl;
@@ -21,9 +23,23 @@ public class SociosTest {
 		Socios socio = new Socios(nombre,apellido,email,direccion,pais);
 		service.save(socio);
 		
+		
+		socio.setApellido("Nuevo apellido");
+		socio.setNombre("nuevo nombre");
+		socio.setEmail("@emailQemail.com");
+		
+		service.update(socio);
+
+		
+		
 		CategoriaService cservice = new CategoriaServiceImpl();
 		Categorias categorias = new Categorias("TELEVISORES","ADASA445");
 		cservice.save(categorias);
+		
+		categorias.setDescripcion("Nueva descripcion");
+		categorias.setCodigo("Nuevo codigo");
+		
+		cservice.update(categorias);
 		
 		
 	}
