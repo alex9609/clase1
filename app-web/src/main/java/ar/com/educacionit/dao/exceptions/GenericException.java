@@ -6,4 +6,8 @@ public class GenericException extends Exception{
 		super(message);
 	}
 	
+	public GenericException(String msj,Throwable source) {
+		super(msj,source);
+	}
+	
 }

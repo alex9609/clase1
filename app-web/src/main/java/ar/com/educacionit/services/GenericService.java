@@ -2,6 +2,7 @@ package ar.com.educacionit.services;
 
 import java.util.List;
 
+import ar.com.educacionit.dao.exceptions.GenericException;
 import ar.com.educacionit.services.exceptions.ServiceException;
 
 public interface GenericService<T> {
@@ -14,5 +15,5 @@ public interface GenericService<T> {
 	
 	public void update(T entity);
 	
-	public List<T> findAll();
+	public List<T> findAll() throws GenericException;
 }
