@@ -23,10 +23,6 @@ public class AbstractBaseService<T> implements GenericService<T> {
 		} catch (GenericException e) {
 			//e.printStackTrace();
 			throw new ServiceException("Error de DB al intentar obtener entity id = " + id,e);
-		} finally {
-			//Siempre se ejecuta, 
-			entity = null;
-			
 		}
 		
 		return entity;
@@ -45,7 +41,7 @@ public class AbstractBaseService<T> implements GenericService<T> {
 		
 		try {
 			return genericDao.save(entity);
-		} catch (DuplicatedException de) {
+		} catch (DuplicatedException |GenericException de) {
 			de.printStackTrace();
 			//Relanzo la exception como una Service Exception que contiene
 			// la exception original
@@ -53,17 +49,20 @@ public class AbstractBaseService<T> implements GenericService<T> {
 		}
 	}
 
-	public void update(T entity) {
-		genericDao.update(entity);
+	public void update(T entity) throws ServiceException {
+		try {
+			genericDao.update(entity);
+		} catch (GenericException | DuplicatedException e) {
+			throw new ServiceException("Error actualizando socio ", e);
+		}
 	}
 
-	public  List<T> findAll() {
+	public  List<T> findAll() throws ServiceException {
 		try {
 			return genericDao.findAll();
 		} catch (GenericException e) {
-			e.printStackTrace();
+			throw new ServiceException("Error consultando base de datos: ", e);
 		}
-		return null;
 	}
 
 	

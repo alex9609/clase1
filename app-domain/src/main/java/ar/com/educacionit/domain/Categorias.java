@@ -5,17 +5,21 @@ public class Categorias implements Entity{
 	private Long id;
 	private String descripcion;
 	private String codigo;
+	private Long habilitada;
 	
+
+
 	public Categorias() {
 		
 	}
 	
 	
 	//Constructor
-	public Categorias(Long id, String descripcion, String codigo) {
+	public Categorias(Long id, String descripcion, String codigo,Long habilitada) {
 		this.id = id;
 		this.descripcion = descripcion;
 		this.codigo = codigo;
+		this.habilitada = habilitada;
 	}
 	
 
@@ -59,6 +63,15 @@ public class Categorias implements Entity{
 		this.codigo = codigo;
 	}
 
+	
+	public Long getHabilitada() {
+		return habilitada;
+	}
+	
+	
+	public void setHabilitada(Long habilitada) {
+		this.habilitada = habilitada;
+	}
 
 	@Override
 	public String toString() {

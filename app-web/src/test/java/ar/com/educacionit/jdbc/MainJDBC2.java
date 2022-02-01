@@ -1,6 +1,7 @@
 package ar.com.educacionit.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,6 +28,7 @@ public class MainJDBC2 {
 		
 		Collection<Entity> lista = new ArrayList<>();
 		Categorias categ = null;
+		/*
 		//Obtener todos los datos
 		while(res.next()) {
 			Long id = res.getLong(1); //Obtener un valir long de la columna1
@@ -96,6 +98,16 @@ public class MainJDBC2 {
 				System.out.println("No hay datos");
 			}
 			*/
+		 
+		 //Con el prepare statement la consulta la definimos antes
+		 //puedo hacer una consulta con el string  =? conde hay el signo de pregunta
+		 //es donde voy a setear el valor a buscar 
+		 String sql = "Select * from categorias where id=?";
+		 PreparedStatement stt = con.prepareStatement(sql);
+		 
+		 stt.setLong(1, 10L);
+		 stt.executeUpdate();
+		 
 	}
 
 

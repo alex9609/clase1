@@ -10,9 +10,10 @@ import ar.com.educacionit.services.CategoriaService;
 import ar.com.educacionit.services.SociosService;
 import ar.com.educacionit.services.Impl.CategoriaServiceImpl;
 import ar.com.educacionit.services.Impl.SociosServicesImpl;
+import ar.com.educacionit.services.exceptions.ServiceException;
 
 public class MainJDBC3 {
-	public static void main(String[] args) throws GenericException, SQLException {
+	public static void main(String[] args) throws GenericException, SQLException, ServiceException {
 		
 		CategoriaService cs = new CategoriaServiceImpl();	
 		
@@ -24,6 +25,9 @@ public class MainJDBC3 {
 		List<Socios> listsoc = ss.findAll();
 		
 		System.out.println(listsoc);
+		
+		
+		cs.delete(null);
 		
 		
 	}

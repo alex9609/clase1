@@ -11,10 +11,11 @@ import ar.com.educacionit.services.exceptions.ServiceException;
 public class SociosTest {
 
 	public static void main(String[] args) throws ServiceException {
+		/*
 		Long id = 1L;
 		String nombre = "Juan";
 		String apellido = "Rodriguez";
-		String email = "alexander10@gmail.com";
+		String email = "alexander1120@gmail.com";
 		String direccion = "calle 12";
 		Long pais = 1L;
 		
@@ -30,7 +31,7 @@ public class SociosTest {
 		
 		service.update(socio);
 
-		
+		/*
 		
 		CategoriaService cservice = new CategoriaServiceImpl();
 		Categorias categorias = new Categorias("TELEVISORES","ADASA445");
@@ -41,7 +42,18 @@ public class SociosTest {
 		
 		cservice.update(categorias);
 		
+		*/
 		
+		String nombre = "Samuel";
+		String apellido = "Ramirez";
+		String email = "ramirezsam2@gmail.com";
+		String direccion = "calle 170";
+		Long pais = 1L;
+		
+		
+		SociosService service = new SociosServicesImpl();
+		Socios socio = new Socios(nombre,apellido,email,direccion,pais);
+		service.save(socio);
 	}
 
 }

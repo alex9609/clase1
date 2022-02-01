@@ -18,6 +18,7 @@ import practica_adicional_semana9.domain.Inscripciones;
 import practica_adicional_semana9.domain.Materia;
 
 public class Menu {
+	
 	private InscripcionService serviceInscripcion;
 
 	private Inscripciones inscripcionAlumnoMateria;

@@ -1,5 +1,7 @@
 package ar.com.educacionit.dao.impl;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import ar.com.educacionit.dao.CategoriaDao;
@@ -13,22 +15,30 @@ public class CategoriaDaoImpl extends JdbcDaoBase<Categorias> implements Categor
 	}
 	
 
-	public String getSaveSQL(Categorias entity) {
-		//Lo particupar del sql
-	//(campo1, campo2, campoN)
-	//values
-	//(value1,value2,valueN)
-
-	return ("(descripcion,codigo) values("+entity.getDescripcion() +  "," + entity.getCodigo()+")"); 
+	public String getSaveSQL() {
+	return ("(descripcion,codigo,habilitada) values(?,?,?)"); 
 }
+	@Override
+	protected void save(PreparedStatement st, Categorias entity) throws SQLException {
+		//Insert unto categorias
+		st.setString(1, entity.getDescripcion());
+		st.setString(2, entity.getCodigo());
+		st.setLong(3, entity.getHabilitada());
+	}
 
-@Override
+	@Override
+	
+	public String getUpdateSQL() {
+		return "Descripcion=?,habilitada=?";
+	}
 
-public String getUpdateSQL(Categorias entity) {
-	String sql = "Descripcion='"+entity.getDescripcion()+"',"
-	+"Codigo='"+entity.getCodigo()+"'";
-	return sql;
-} 
+
+	@Override
+	protected void update(PreparedStatement st, Categorias entity) throws SQLException {
+		st.setString(1, entity.getDescripcion());
+		st.setLong(2, entity.getHabilitada());
+		
+	}
 	
 
 }

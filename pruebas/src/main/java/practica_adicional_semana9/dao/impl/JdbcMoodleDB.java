@@ -15,8 +15,11 @@ import practica_adicional_semana9.domain.Materia;
 public class JdbcMoodleDB<T extends Entity> implements GenericMoodleDao<T> {
 	
 	protected DatosDBMemoria datosBD = new DatosDBMemoria();
+	//SIMULA UNA BASE DE DATOS ALUMNOS Y MATERIAS
 	protected Alumno[] alumnos;
 	protected Materia[] materias;
+	
+	
 	protected String tabla;
 	protected Class<T> clazz;
 	protected T entity;

@@ -32,9 +32,6 @@ public class Inscripciones  implements Entity {
 		return id;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		return "Inscripciones [id="+ this.getId() + ", alumno= " + alumno.getNombre()+" " + alumno.getId()  + ", materia= " + materia.getId()+" " + materia.getCurso() + "]";
