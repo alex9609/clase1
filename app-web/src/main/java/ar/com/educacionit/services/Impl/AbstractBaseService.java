@@ -13,6 +13,9 @@ public class AbstractBaseService<T> implements GenericService<T> {
 	protected GenericDao<T> genericDao;
 	
 	public AbstractBaseService(GenericDao<T> dao) {
+		if(dao == null) {
+			throw new IllegalArgumentException("El dao no puede ser null");
+		}
 		this.genericDao = dao;
 	}
 

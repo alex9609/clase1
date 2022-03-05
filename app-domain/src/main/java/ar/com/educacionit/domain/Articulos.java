@@ -12,6 +12,7 @@ public class Articulos {
 	private Integer stock;
 	private Long marcaId;
 	private Long categoriaId;
+	private Categorias categoria;
 	
 	//Constructor
 	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock, Long marcaId,
@@ -28,7 +29,6 @@ public class Articulos {
 	//Desde la db (Base de datos)
 	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock,
 			Long marcaId, Long categoriaId) {
-		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.fechaCreacion = fechaCreacion;
@@ -43,6 +43,15 @@ public class Articulos {
 	
 	//Para sobrecargar hay que diferir los parametros
 	
+	public Articulos(Long id, String titulo, Double precio) {
+		this.id = id;
+		this.titulo = titulo;
+		this.precio = precio;
+	}
+	
+	public Articulos() {
+
+	}
 	
 	public Double getPrecio() {
 		return this.precio;
