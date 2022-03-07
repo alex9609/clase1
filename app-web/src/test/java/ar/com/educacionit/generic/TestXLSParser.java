@@ -11,6 +11,7 @@ public class TestXLSParser {
 		String path = "C:/Users/alexa/OneDrive/Documentos/Desarrollo/Articulo.xlsx";
 		
 		IParser<Collection<Articulos>> articulos = new XLSFileParser(path);
+		
 		try {
 			Collection<Articulos> articuloLista = articulos.parse();
 			for(Articulos art : articuloLista) {

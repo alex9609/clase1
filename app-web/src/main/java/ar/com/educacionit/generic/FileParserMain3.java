@@ -11,7 +11,7 @@ public class FileParserMain3 {
 		String path = "C:/Users/alexa/OneDrive/Documentos/Desarrollo/Articulo.xlsx";
 		
 		IParser<Collection<Articulos>> parser = new XLSFileParser(path);
-		//XLSFileParser parser = new XLSFileParser(path);
+		//XLSFileParser parser = new XLSFileParser(path); //Tambien funciona
 		
 		try {
 			Collection<Articulos> listaArticulos = parser.parse();

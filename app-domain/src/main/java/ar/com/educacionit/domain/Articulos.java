@@ -40,7 +40,6 @@ public class Articulos  implements Entity{
 	}
 	
 	//Para la sobrecarga en el tipo de retorno no entra en juego.
-	
 	//Para sobrecargar hay que diferir los parametros
 	
 	public Articulos(Long id, String titulo, Double precio) {

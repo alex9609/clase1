@@ -72,7 +72,6 @@ public class XLSFileParser extends BaseFile implements IParser<Collection<Articu
 		}
 
 		// articulos
-
 		return articuloLista;
 	}
 	
