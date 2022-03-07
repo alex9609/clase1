@@ -10,7 +10,7 @@ public class ArticuloTest {
 		//un package identifico y la clase con el metodo
 		
 		//Assert aserciones sobre algo
-		Articulos miArticulo = new Articulos("titulo1", new Date(), "0001", 2500d, 5, 1l, 1l);
+		Articulos miArticulo = new Articulos("titulo1", new Date(), "0001", 2500d, 5L, 1l, 1l);
 		
 		String titulo = miArticulo.getTitulo(true);
 		

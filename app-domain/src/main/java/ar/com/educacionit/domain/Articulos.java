@@ -2,20 +2,20 @@ package ar.com.educacionit.domain;
 
 import java.util.Date;
 
-public class Articulos {
+public class Articulos  implements Entity{
 	
 	private Long id;
 	private String titulo;
 	private Date fechaCreacion;
 	private String codigo;
 	private Double precio;
-	private Integer stock;
+	private Long stock;
 	private Long marcaId;
 	private Long categoriaId;
 	private Categorias categoria;
 	
 	//Constructor
-	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock, Long marcaId,
+	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Long stock, Long marcaId,
 			Long categoriaId) {
 		this.titulo = titulo;
 		this.fechaCreacion = fechaCreacion;
@@ -27,7 +27,7 @@ public class Articulos {
 	}
 
 	//Desde la db (Base de datos)
-	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Integer stock,
+	public Articulos(Long id, String titulo, Date fechaCreacion, String codigo, Double precio, Long stock,
 			Long marcaId, Long categoriaId) {
 		this.id = id;
 		this.titulo = titulo;
@@ -98,11 +98,11 @@ public class Articulos {
 		this.codigo = codigo;
 	}
 
-	public Integer getStock() {
+	public Long getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
+	public void setStock(Long stock) {
 		this.stock = stock;
 	}
 

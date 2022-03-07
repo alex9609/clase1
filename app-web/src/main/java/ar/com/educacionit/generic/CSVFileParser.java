@@ -25,7 +25,10 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 		if (!file.exists()) {
 			throw new ParseException("No existe el archivo: " + super.getFilePath());
 		}
+		//Leo el archivo con un FileReader
 		try (FileReader fileReader = new FileReader(file);) {
+			
+			//FileaReader es un reader  -> El constructor de BufferedReader espera un Reader
 			try (BufferedReader br = new BufferedReader(fileReader);) {
 				// Leer la primer linea y la descarto porque tiene los titulos
 				String lineaLeida = br.readLine();
