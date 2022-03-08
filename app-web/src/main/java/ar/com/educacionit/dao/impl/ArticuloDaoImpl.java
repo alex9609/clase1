@@ -14,22 +14,43 @@ public class ArticuloDaoImpl extends JdbcDaoBase<Articulos> implements ArticuloD
 
 	@Override
 	protected void update(PreparedStatement st, Articulos entity) throws SQLException {
-		
+		st.setString(1, entity.getTitulo());
+		st.setDouble(2, entity.getPrecio());
+		st.setLong(3, entity.getStock());
+		st.setLong(4, entity.getMarcaId());
+		st.setLong(5, entity.getCategoriaId());
 	}
 
 	@Override
 	public String getUpdateSQL() {
-		return null;
+		return "titulo = ?,precio = ?,stock = ?,marcas_id = ?,categorias_id = ?";
 	}
-
+	/*
+	 *   titulo varchar(100) NOT NULL,
+  codigo varchar(10) NOT NULL,
+  fecha_creacion date NOT NULL,
+  precio float NOT NULL,
+  stock int NOT NULL,
+  marcas_id int NOT NULL,
+  categorias_id int NOT NULL  
+	 */
 	@Override
 	protected void save(PreparedStatement st, Articulos entity) throws SQLException {
-		
+		st.setString(1, entity.getTitulo());
+		st.setString(2, entity.getCodigo());
+		st.setDate(3, new java.sql.Date(entity.getFechaCreacion().getTime()));
+		st.setDouble(4, entity.getPrecio());
+		st.setLong(5, entity.getStock());
+		st.setLong(6, entity.getMarcaId());
+		st.setLong(7, entity.getCategoriaId());
+
+
 	}
 
 	@Override
+
 	public String getSaveSQL() {
-		return null;
+		return ("(titulo,codigo,fecha_creacion,precio,stock,marcas_id,categorias_id) values (?,?,?,?,?,?,?)");
 	}
 
 }

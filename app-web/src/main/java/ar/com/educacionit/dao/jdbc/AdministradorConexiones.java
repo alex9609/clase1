@@ -12,7 +12,7 @@ public class AdministradorConexiones {
 		
 		//url, usuario, password, driver
 		//El driver pide el timezone sino no se conecta
-		String url = "jdbc:mysql://localhost:3306/bootcamp-protalento?serverTimeZone=UTC&userSSL=false";
+		String url = "jdbc:mysql://localhost:3306/bootcamp_protalento?serverTimeZone=UTC&userSSL=false";
 		String user = "root";
 		String password ="root";
 		String driverName = "com.mysql.cj.jdbc.Driver";
