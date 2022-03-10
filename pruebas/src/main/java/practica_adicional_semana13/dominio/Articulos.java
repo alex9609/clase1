@@ -2,14 +2,14 @@ package practica_adicional_semana13.dominio;
 
 import java.util.Date;
 
-public class Articulos {
+public class Articulos implements Entity {
 
 	private String titulo;
 	private String codigo;
 	private Double precio;
 	private Long stock;
-	private Long marcaId;
-	private Long categoriaId;
+	private Long marcaID;
+	private Long categoriaID;
 	private Date fechaCreacion;
 
 	public Articulos(String titulo, String codigo, Double precio, Long stock, Long marcaId, Long categoriaId) {
@@ -17,8 +17,8 @@ public class Articulos {
 		this.codigo = codigo;
 		this.precio = precio;
 		this.stock = stock;
-		this.marcaId = marcaId;
-		this.categoriaId = categoriaId;
+		this.marcaID = marcaId;
+		this.categoriaID = categoriaId;
 	}
 
 	public Articulos() {
@@ -58,19 +58,19 @@ public class Articulos {
 	}
 
 	public Long getMarcaId() {
-		return marcaId;
+		return marcaID;
 	}
 
 	public void setMarcaId(Long marcaId) {
-		this.marcaId = marcaId;
+		this.marcaID = marcaId;
 	}
 
 	public Long getCategoriaId() {
-		return categoriaId;
+		return categoriaID;
 	}
 
 	public void setCategoriaId(Long categoriaId) {
-		this.categoriaId = categoriaId;
+		this.categoriaID = categoriaId;
 	}
 
 	public Date getFechaCreacion() {
@@ -84,7 +84,7 @@ public class Articulos {
 	@Override
 	public String toString() {
 		return "Articulos [titulo=" + titulo + ", codigo=" + codigo + ", precio=" + precio + ", stock=" + stock
-				+ ", marcaId=" + marcaId + ", categoriaId=" + categoriaId + ", fechaCreacion=" + fechaCreacion + "]";
+				+ ", marcaId=" + marcaID + ", categoriaId=" + categoriaID + ", fechaCreacion=" + fechaCreacion + "]";
 	}
 
 	
