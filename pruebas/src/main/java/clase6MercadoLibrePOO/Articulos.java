@@ -11,6 +11,9 @@ public class Articulos {
 		this.precio = precio;
 	}
 	
+	public Articulos() {
+	}
+
 	boolean Set_activar_descuento() {
 		if(descuento == false) {
 			descuento = true;
