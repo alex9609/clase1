@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header>
+		<h1>Registro de usuarios</h1>
+		<nav>
+			<ul>
+				<li>Home</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h2>Formulario de registro</h2>
+		<form action="/app-web" method="GET">
+			<label>Nombre*</label>
+			<br>
+			<!--  El nombre es el valor con el que va a viajar al servidor
+		el id es un identificador local dentro de la pagina -->
+			<input name="nombre" type="text">
+			<br>
+			<label>Email*</label>
+			<br>
+			<input type="email" name="email">
+			<br>
+			<label>Recibir novedades</label>
+			<br>
+			<input type="checkbox" name="rn">
+			<br>
+			
+			<lable>Casado</lable>
+			<br>
+			<span>SI</span><input type="radio" name="casado" value = "si">
+			<span>NO</span><input type="radio" name="casado" value = "no">
+			
+			<br>
+			<label>Rando de edad</label>
+			<select name="randoEdad">
+				<option value="18-25">entre 18 y 25</option>
+				<option value="26-30">entre 26 y 30</option>
+			</select>
+			<br>
+			<label>Fecha de nacimiento</label>
+			<br>
+			<input type="date" name="fechaNacimiento">
+			<br>
+			<button>Enviar</button>
+		</form>
+	</main>
+</body>
+</html>

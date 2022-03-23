@@ -26,4 +26,6 @@
 	<form action="<%=request.getContextPath()%>/listado" method = "get">
 		<input type="submit" value="Pedir listado get" ></input>
 	</form>
+	
+	<img src="<%=request.getContextPath()%>/img/bartsimpson.jpg" alt="bart">
 </html>
