@@ -5,6 +5,6 @@ import ar.com.educacionit.services.exceptions.ServiceException;
 
 public interface LoginService {
 		
-	Users getUserByUserName(String username) throws ServiceException;
+	Users getUserByUserNameAndPassword(String username,String password) throws ServiceException;
 	
 }

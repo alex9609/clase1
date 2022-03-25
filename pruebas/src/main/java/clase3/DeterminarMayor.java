@@ -1,5 +1,7 @@
 package clase3;
 
+import java.util.Scanner;
+
 public class DeterminarMayor {
 
 	public static void main(String[] args) {
@@ -17,6 +19,15 @@ public class DeterminarMayor {
 		}else {
 			System.out.println("C es mayor");
 		}
+		
+		System.out.println("  add mm  ".trim());
+		
+		int v = 0;
+		while(v<=10) {
+			v++;
+		}
+		System.out.println(v);
 	}
+	
 
 }

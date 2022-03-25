@@ -9,6 +9,9 @@ public class Users {
 	//Ejemplo de la relación entre clases
 	private Socios socio;
 
+	public Users() {
+	}
+
 	public Users(Long id, String username, String password) {
 		this.id = id;
 		this.username = username;

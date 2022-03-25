@@ -33,17 +33,15 @@ public class LoginServlet extends HttpServlet {
 		ViewEnums target = ViewEnums.LOGIN_SUCCESS;
 		
 		try {
-			user = ls.getUserByUserName(usernameFromHtml);
-			if(user != null) {
-				//Hash password que viene del hhtml y compararlo con el que tiene el usuario
-				BCrypt.Result result = BCrypt.verifyer().verify(passwordFromHtml.getBytes(), user.getPassword().getBytes());
-				
-				if(!result.verified) {
-					//Enviar al usuario loginSuccess.jsp
-					target = ViewEnums.LOGIN;
-				}
-			}else {
+			user = ls.getUserByUserNameAndPassword(usernameFromHtml,passwordFromHtml);
+			if(user == null) {
 				target = ViewEnums.LOGIN;
+			}else {
+				//request
+				req.setAttribute("usuario",user);
+				
+				//session
+				req.getSession().setAttribute("usuario", user);
 			}
 		} catch (ServiceException e) {
 			e.printStackTrace();

@@ -23,7 +23,7 @@ public class UserServiceImpl implements LoginService{
 
 
 	@Override
-	public Users getUserByUserName(String username) throws ServiceException {
+	public Users getUserByUserNameAndPassword(String username, String password) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
