@@ -27,6 +27,10 @@ public class DeterminarMayor {
 			v++;
 		}
 		System.out.println(v);
+		
+		String valor = "a";
+		System.out.println(Long.parseLong(valor));
+		
 	}
 	
 

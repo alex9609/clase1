@@ -1,0 +1,28 @@
+input {
+	color: red;
+}
+
+/*Ahora aplico estilos a las listas*/
+.enlace {
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+}
+
+ul li a:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+ul li {
+	list-style: none;
+}
+
+/* Aplica solo al id seclogin un fondo amarillo*/
+#seclogin {
+	background:yellow;
+}
+
+.tabla{
+	background:red;
+}
