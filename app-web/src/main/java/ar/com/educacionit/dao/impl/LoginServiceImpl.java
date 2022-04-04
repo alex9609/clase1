@@ -23,13 +23,15 @@ public class LoginServiceImpl implements LoginService {
 	public Users getUserByUserNameAndPassword(String username, String passwordFromHtml) throws ServiceException {
 		try {
 			Users user = this.userDao.getUserByUserName(username);
-			// Hash password que viene del hhtml y compararlo con el que tiene el usuario
-			BCrypt.Result result = BCrypt.verifyer().verify(passwordFromHtml.getBytes(), user.getPassword().getBytes());
 
-			if (!result.verified) {
-				throw new ServiceException("Credenciales incorrectas", null);
-			}
 			if (user != null) {
+				// Hash password que viene del hhtml y compararlo con el que tiene el usuario
+				BCrypt.Result result = BCrypt.verifyer().verify(passwordFromHtml.getBytes(),
+						user.getPassword().getBytes());
+
+				if (!result.verified) {
+					throw new ServiceException("Credenciales incorrectas", null);
+				}
 				Socios socio = this.socioDao.getSociosByUserId(user.getId());
 				user.setSocio(socio);
 			}
