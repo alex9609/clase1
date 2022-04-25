@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 
+import javax.servlet.http.Part;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -21,6 +23,10 @@ public class XLSFileParser extends BaseFile implements IParser<Collection<Articu
 
 	public XLSFileParser(String path) {
 		super(path);
+	}
+	
+	public XLSFileParser(Part filePart) {
+		super(filePart);
 	}
 
 	public Collection<Articulos> parse() throws ParseException {
@@ -105,6 +111,11 @@ public class XLSFileParser extends BaseFile implements IParser<Collection<Articu
 		}
 		
 		articulos.setFechaCreacion(new Date());
+	}
+
+	@Override
+	public Collection<Articulos> parseV2() throws ParseException, IOException {
+		return null;
 	}
 
 }

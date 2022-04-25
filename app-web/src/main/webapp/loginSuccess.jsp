@@ -23,7 +23,7 @@ Users user = (Users) session.getAttribute(ViewKeysEnum.USER.getParam());
 			<h2>Nombre: <%=user.getSocio().getNombre()%></h1>
 			<h2>Apellido: <%=user.getSocio().getApellido() %></h2>
 			
-			<a href="<%=request.getContextPath()%>/BuscarProductosServlet">Ver listado</a>
+			<a href="<%=request.getContextPath()%>/controllers/BuscarProductosServlet">Ver listado</a>
 		</main>
 		<jsp:include page="scripts.jsp" />
 	</body>

@@ -1,3 +1,6 @@
+<%@page import="java.util.Collection"%>
+<%@page import="ar.com.educacionit.domain.Articulos"%>
+
 <%@page import="ar.com.educacionit.web.enums.ViewKeysEnum"%>
 <%@page isELIgnored="false"%>
 
@@ -22,17 +25,12 @@
 		<jsp:include page="mensajeria.jsp" />
 		<section class="container">
 			<div class="row d-flex justify-content-center">
-				<h1>Cargar archivo</h1>
-				<div class="col-6">
-				<!-- Cuando se envien archivos binarios se envia con el tag enctype -->
-					<form action="${pageContext.request.contextPath}/controllers/UploadServlet" method="post" enctype="multipart/form-data">
-						<div class="mb-3">
-						  <label for="formFile" class="form-label">Cargar archivo</label>
-						  <input class="form-control" name="<%=ViewKeysEnum.UPLOAD_FILE.getParam()%>" type="file" id="formFile">
-						</div>
-						<button type="submit" class="btn btn-primary">Cargar archivo</button>
-					</form>
-				</div>
+				<h1>Preview de archivos a procesar</h1>
+				<%
+					Collection<Articulos> articulos = (Collection<Articulos>)request.getAttribute(ViewKeysEnum.UPLOAD_PREVIEW_KEY.getParam());
+					out.print(articulos);
+				%>
+				
 			</div>
 		</section>
 
