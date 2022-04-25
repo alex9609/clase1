@@ -51,6 +51,7 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 					String titulo = datos[1];
 					String precio = datos[2];
 
+					
 					// Creo el articulo
 					Articulos unArticulo = new Articulos(Long.parseLong(id), titulo, Double.parseDouble(precio));
 					articulos.add(unArticulo);

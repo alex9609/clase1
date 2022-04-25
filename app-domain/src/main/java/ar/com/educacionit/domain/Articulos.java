@@ -88,6 +88,7 @@ public class Articulos  implements Entity{
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	
 
 	public String getCodigo() {
 		return codigo;

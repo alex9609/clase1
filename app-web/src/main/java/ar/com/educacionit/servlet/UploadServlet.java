@@ -31,6 +31,7 @@ public class UploadServlet extends BaseServlet {
 		ViewEnums target = ViewEnums.UPLOAD_PREVIEW;
 		if(filepart.getSize() > 0) {
 			
+			
 			//Permite leer cierta informacion de direcciones
 			//Formas segura de capturar el nombre del archivo
 			String fileName = Paths.get(filepart.getSubmittedFileName()).getFileName().toString();

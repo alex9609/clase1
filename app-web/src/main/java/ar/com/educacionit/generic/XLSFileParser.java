@@ -76,7 +76,6 @@ public class XLSFileParser extends BaseFile implements IParser<Collection<Articu
 		} catch (IOException e) {
 			throw new ParseException("No se ha podido parsear el archivo : " + getFilePath(), e);
 		}
-
 		// articulos
 		return articuloLista;
 	}
