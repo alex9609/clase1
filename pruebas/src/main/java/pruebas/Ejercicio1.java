@@ -11,6 +11,10 @@ public class Ejercicio1 {
 		boolean variableRes;
 		System.out.println(4+9);
 		System.out.println("Hola mundo");
+	
+		String valor = "alex";
+		int a = Integer.parseInt("asd");
+		System.out.println(a);
 		
 	}
 

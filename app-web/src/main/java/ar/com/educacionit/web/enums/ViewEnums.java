@@ -1,13 +1,14 @@
 package ar.com.educacionit.web.enums;
 
-public enum ViewEnums {
+public enum ViewEnums implements Enumerable {
 	
 	LOGIN("/Login.jsp"),
 	LOGIN_SUCCESS("/loginSuccess.jsp"),
 	HOME("/index.jsp"),
 	ERROR_GENERAL("/errorGeneral.jsp"),
 	UPLOAD_PREVIEW("/preview.jsp"), 
-	UPLOAD("/upload.jsp");	
+	UPLOAD("/upload.jsp"),
+	RESULTADO_PREVIEW("/resultadoPreview.jsp");	
 	
 	private String view;
 	private ViewEnums(String view) {
@@ -16,6 +17,11 @@ public enum ViewEnums {
 	
 	public String getView() {
 		return this.view;
+	}
+
+	@Override
+	public String getParam() {
+		return this.getView();
 	}
 
 }

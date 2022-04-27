@@ -1,9 +1,3 @@
-<%@page import="java.util.Collection"%>
-<%@page import="ar.com.educacionit.domain.Articulos"%>
-
-<%@page import="ar.com.educacionit.web.enums.ViewKeysEnum"%>
-<%@page isELIgnored="false"%>
-
 <!-- con el doctype le decimos que es un hmtl 5 -->
 <!DOCTYPE html>
 <html lang=es>
@@ -26,11 +20,12 @@
 		<section class="container">
 			<div class="row d-flex justify-content-center">
 				<h1>Preview de archivos a procesar</h1>
-				<%
-					Collection<Articulos> articulos = (Collection<Articulos>)request.getAttribute(ViewKeysEnum.UPLOAD_PREVIEW_KEY.getParam());
-					out.print(articulos);
-				%>
-				
+					<jsp:include page="./component/tablaArticulosPreview.jsp" />
+					<div class="row">
+						<div class="col-12">
+							 	<a class="btn btn-primary" href="<%=request.getContextPath()%>/controllers/CargarProductosServlet" role="button">Guardar</a>
+						</div>
+					</div>
 			</div>
 		</section>
 

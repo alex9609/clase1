@@ -59,10 +59,12 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 					lineaLeida = br.readLine();
 				}
 			}
+			return articulos;
 		} catch (IOException e) {
 			throw new ParseException(e.getMessage(), e);
+		}finally {
+			//Cerrar br
 		}
-		return articulos;
 
 	}
 
@@ -85,23 +87,22 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 				fileReader = new FileReader(file);
 				br = new BufferedReader(fileReader);
 			}
-		} catch (Exception e) {
-
-		} finally {
+			return this.buildArchivos(br);
+		}catch(IOException ie){
+			throw new ParseException(ie.getMessage(), ie);
+		}finally {
 			if (br != null) {
 				br.close();
 			}
 
 		}
-
-		// Lista vacia de articuslo
-		return this.buildArchivos(br);
-
 	}
 
 	public Collection<Articulos> buildArchivos(BufferedReader br) throws IOException {
 		Collection<Articulos> articulos = new ArrayList<Articulos>();
 		String lineaLeida = br.readLine();
+		
+		lineaLeida = br.readLine();
 		// id,titulo,precio;
 
 		// vuelvo a leer para tomas los "registros"
@@ -110,7 +111,7 @@ public class CSVFileParser extends BaseFile implements IParser<Collection<Articu
 			String[] datos = lineaLeida.split(";");
 			String titulo = datos[0];	
 			String codigo = datos[1];
-			String precio = datos[2];
+			String precio = datos[2]; 
 			String stock = datos[3];
 			String marcas = datos[5];
 			String categoria = datos[4];
