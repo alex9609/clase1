@@ -15,25 +15,31 @@ import ar.com.educacionit.domain.Articulos;
 import ar.com.educacionit.services.ArticulosService;
 import ar.com.educacionit.services.Impl.ArticulosServiceImpl;
 import ar.com.educacionit.services.exceptions.ServiceException;
+import ar.com.educacionit.web.enums.ViewEnums;
+import ar.com.educacionit.web.enums.ViewKeysEnum;
 
 @WebServlet("/controllers/BuscarProductosServlet")
-public class BuscarProductosServlet extends HttpServlet{
-	
+public class BuscarProductosServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ArticulosService service = new ArticulosServiceImpl();
-		
-		try {
-			List<Articulos> lista =service.findAll();
-			
-			req.setAttribute("Listado", lista);	
-			getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
-		} catch (ServiceException | GenericException e) {
-			List<Articulos> listado = new ArrayList<>();
-			req.setAttribute("Listado", listado);	
-			getServletContext().getRequestDispatcher("/loginSuccess.jsp").forward(req, resp);
+
+		String claveBusqueda = req.getParameter(ViewKeysEnum.CLAVE_BUSQUEDA.getParam());
+		if (claveBusqueda == null) {
+			claveBusqueda = "";
 		}
-		super.doGet(req, resp);
+		ArticulosService service = new ArticulosServiceImpl();
+
+		try {
+			List<Articulos> listado = service.findAllBy(claveBusqueda);
+			req.getSession().setAttribute(ViewKeysEnum.LISTADO.getParam(), listado);
+			getServletContext().getRequestDispatcher(ViewEnums.LISTADO_GENERAL.getParam()).forward(req,resp);
+
+		} catch (ServiceException e) {
+			List<Articulos> listado = new ArrayList<>();
+			req.setAttribute("LISTADO", listado);
+			getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
+		}
 	}
 
 }

@@ -4,6 +4,7 @@
 <%@page isELIgnored="false" %>
 
 <!-- con el doctype le decimos que es un hmtl 5 -->
+
 <!DOCTYPE html>
 <html lang=es>
 
@@ -27,6 +28,7 @@
 			<div class="row">
 				<div class="col-6">
 					<form action="${pageContext.request.contextPath}/LoginServlet" method="POST">
+						<input type="hidden" id="data" name="data">
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Email
 								address</label>
@@ -37,12 +39,27 @@
 							<input type="password" name="<%=ViewKeysEnum.PASSWORD.getParam()%>" class="form-control"
 								id="exampleInputPassword1">
 						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
+						<button type="button" class="btn btn-primary" onclick="send()">Login</button>
+						</form>
 				</div>
 			</div>
 		</div>
 	</main>
 	<jsp:include page="scripts.jsp" />
 </body>
+<script>
+	function send(){
+		const form = document.forms[0]; //Me devuelve el primer formulario dal html
+
+		const loginObject ={
+			username : document.getElementById('exampleInputEmail1').value,
+			password : document.getElementById('exampleInputPassword1').value
+		};
+		
+		document.getElementById('data').value = JSON.stringify(loginObject);
+		
+		//Invocar al submit del formulario
+		form.submit();
+	}
+</script>
 </html>

@@ -62,7 +62,7 @@ if(articulosFails == null){
 		for (Articulos arti : articulosFails) {
 		%>
 		<tr>
-			<th scope="row"></th>
+			<th scope="row"></th> 
 			<td><%=arti.getTitulo()%></td>
 			<td><%=arti.getCodigo()%></td>
 			<td><%=arti.getPrecio()%></td>
@@ -78,16 +78,21 @@ if(articulosFails == null){
 
 <div class="row">
 	<div class="col-12">
-		<form action="<%=request.getContextPath()%>/controllers/GenerarArchivoErrorSevlet" method="POST" target="_new">
+		<form action="<%=request.getContextPath()%>/controllers/GenerarArchivoErrorServlet" method="POST" target="_new">
 			<div class="input-group mb-3">
 				<select name="formato" class="form-select" aria-label="Default select example">
-				  <option value="1" selected>CSV</option>
-				  <option value="2">XSL</option>
-				  <option value="3">PDF</option>
+				  <option value="csv" selected>CSV</option>
+				  <option value="xls">XSL</option>
+				  <option value="pdf">PDF</option>
 				</select>
+				<!-- 
 				<a class="btn btn-primary" href="<%=request.getContextPath()%>/controllers/CargarProductosServlet" role="button">
 					Generar Archivo de Errores
 				</a>
+				 -->
+				<button class="btn btn-primary">
+					Generar Archivo de Errores
+				</button>
 			</div>
 		</form>
 		

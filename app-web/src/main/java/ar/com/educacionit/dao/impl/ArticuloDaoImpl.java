@@ -2,8 +2,10 @@ package ar.com.educacionit.dao.impl;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import ar.com.educacionit.dao.ArticuloDao;
+import ar.com.educacionit.dao.exceptions.GenericException;
 import ar.com.educacionit.domain.Articulos;
 
 public class ArticuloDaoImpl extends JdbcDaoBase<Articulos> implements ArticuloDao {
@@ -51,6 +53,12 @@ public class ArticuloDaoImpl extends JdbcDaoBase<Articulos> implements ArticuloD
 
 	public String getSaveSQL() {
 		return ("(titulo,codigo,fecha_creacion,precio,stock,marcas_id,categorias_id) values (?,?,?,?,?,?,?)");
+	}
+	
+	public List<Articulos> findBySQL(String whereSQL) throws GenericException{
+		String where = "select * from articulos where titulo like '%"+whereSQL+"%'";
+		return super.findBySQL(where);
+		
 	}
 
 }

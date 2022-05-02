@@ -14,6 +14,7 @@ import ar.com.educacionit.domain.Articulos;
 import ar.com.educacionit.services.ArticulosService;
 import ar.com.educacionit.services.Impl.ArticulosServiceImpl;
 import ar.com.educacionit.services.exceptions.ServiceException;
+import ar.com.educacionit.web.enums.ViewKeysEnum;
 
 /*
  * 
@@ -24,16 +25,16 @@ import ar.com.educacionit.services.exceptions.ServiceException;
  * 
  * Es una anotación 
  */
-@WebServlet("/listado")
+@WebServlet("/controllers/ListadoServlet")
 public class ListadoServlet extends HttpServlet {  
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest entrada, HttpServletResponse salida) throws ServletException, IOException {
 		System.out.println("LLege al servlet /listado que atiende por POST");
-		resp.getWriter().print("Hola frontend soy el backend desde el post");
+		salida.getWriter().print("Hola frontend soy el backend desde el post");
 	}
 	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArticulosService articuloService = new ArticulosServiceImpl();
 		
@@ -41,10 +42,10 @@ public class ListadoServlet extends HttpServlet {
 			List<Articulos> articulos = articuloService.findAll();
 			//Guardar el listado en un lugar llamdo request
 			
-			req.setAttribute("Listado", articulos);
+			request.setAttribute(ViewKeysEnum.LISTADO.getParam(), articulos);
 			
 			//Ahora ve a la otra pagina y pasale la lista de articulos
-			getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
+			getServletContext().getRequestDispatcher("/listado.jsp").forward(request, response);
 		} catch (ServiceException | GenericException e) {
 			e.printStackTrace();
 		}
