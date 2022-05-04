@@ -17,7 +17,7 @@ import ar.com.educacionit.domain.Users;
 import ar.com.educacionit.web.enums.ViewKeysEnum;
 
 //Es un filtro para darle un poco de seguridad a nuestro programa
-@WebFilter(filterName = "/SessionFilter", urlPatterns="/controllers/*")
+//@WebFilter(filterName = "/SessionFilter", urlPatterns="/controllers/*")
 public class SessionFilter implements Filter{
 	
 	//FilterChain cadena de ejecución donde se van a ejecutar varios filtro
