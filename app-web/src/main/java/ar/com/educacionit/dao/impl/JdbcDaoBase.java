@@ -45,10 +45,17 @@ public abstract class JdbcDaoBase<T extends Entity> implements GenericDao<T> {
 		}
 		T entity = null;
 		String sql = "SELECT * FROM " + this.tabla + "  WHERE ID=" + id;
-
-		List<T> list = this.findBySQL(sql);
-		if (!list.isEmpty()) {
-			entity = list.get(0);
+		try(Connection con = AdministradorConexiones.obtenerConexion()){
+			try(Statement st = con.createStatement()){
+				try(ResultSet res = st.executeQuery(sql)){
+					List<T> list = DTOUtils.populateDTOs(this.clazz, res);
+					if(!list.isEmpty()) {
+						entity = list.get(0);
+					}
+				}
+			}
+		}catch(Exception e) {
+			throw new GenericException("No se pudo consultar: " + sql,e);
 		}
 		return entity;
 	}
@@ -143,7 +150,7 @@ public abstract class JdbcDaoBase<T extends Entity> implements GenericDao<T> {
 
 		// UPDATE TABLA SET CAMPO1 =?, CAMPO2=?, CAMPON=?
 
-		String sql = "UPDATE " + this.tabla + " SET " + this.getUpdateSQL() + " WHERE ID = " + entity.getId();
+		String sql = "UPDATE " + this.tabla + " SET " + this.getUpdateSQL() + " WHERE id = " + entity.getId();
 
 		try (Connection con = AdministradorConexiones.obtenerConexion();) {
 
