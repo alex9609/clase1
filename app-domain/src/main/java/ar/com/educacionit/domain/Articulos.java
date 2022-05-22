@@ -13,12 +13,14 @@ public class Articulos  implements Entity{
 	private Long marcaId;
 	private Long categoriaId;
 	private Categorias categoria;
+	private Marcas marca;
+
 	
 	//Constructor
-	public Articulos(String titulo, Date fechaCreacion, String codigo, Double precio, Long stock, Long marcaId,
+	public Articulos(String titulo, String codigo, Double precio, Long stock, Long marcaId,
 			Long categoriaId) {
 		this.titulo = titulo;
-		this.fechaCreacion = fechaCreacion;
+		this.fechaCreacion = new Date();
 		this.codigo = codigo;
 		this.precio = precio;
 		this.stock = stock;
@@ -137,6 +139,24 @@ public class Articulos  implements Entity{
 	//que generalmente devuelve el estado de una clase
 	
 	//Muestra una foto del objeto del elemento determinado
+	
+	
+	
+	public Categorias getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categorias categoria) {
+		this.categoria = categoria;
+	}
+
+	public Marcas getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marcas marca) {
+		this.marca = marca;
+	}
 	
 	@Override
 	public String toString() {

@@ -19,7 +19,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<%if(user != null) {%>
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/upload.jsp">Cargar archivo</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Nuevo producto</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/controllers/NuevoProductoServlet">Nuevo producto</a></li>
 			<%} %>
 					<li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
 				</ul>

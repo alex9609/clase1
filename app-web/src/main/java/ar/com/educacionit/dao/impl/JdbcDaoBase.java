@@ -81,44 +81,6 @@ public abstract class JdbcDaoBase<T extends Entity> implements GenericDao<T> {
 		}
 
 	}
-	/*
-	 * public T save(T entity) throws DuplicatedException { //Con api reflection
-	 * //buscar los fields //for > cuales son no nulos
-	 * 
-	 * StringBuffer namesSQL = new StringBuffer( "INSER INTO "
-	 * ).append(this.tabla).append("("); StringBuffer valueSQLString = new
-	 * StringBuffer("values (");
-	 * 
-	 * try { //Creamos una nueva instancia para el objeto //Me da una instancia
-	 * vacia por defecto T instance = this.clazz.getConstructor().newInstance();
-	 * 
-	 * //Le pido los fields a ese instance
-	 * 
-	 * Field[] fields = instance.getClass().getDeclaredFields();
-	 * 
-	 * //Recorro cada uno de los fields for(Field field:fields) { //Cambiamos la
-	 * accesibilidad del field field.setAccessible(true);
-	 * 
-	 * String camposql = field.getName(); //Nombre que tenga el field - Este name es
-	 * un camelcase Object valuesql = field.get(entity); if(valuesql != null) {
-	 * namesSQL.append(camposql).append(",");
-	 * valueSQLString.append("'").append(valuesql).append("'").append(",");
-	 * 
-	 * } } //insert into tabla (campo1, campo2, campon,) namesSQL = new
-	 * StringBuffer(namesSQL.substring(0,namesSQL.length()-1)); //Con esta linea
-	 * quitamos un string adicional namesSQL.append(")"); //Insert into tabla
-	 * (campo1, campo2 ..... campoN) values (1,2 etc valueSQLString = new
-	 * StringBuffer(valueSQLString.substring(0,valueSQLString.length()-1));
-	 * valueSQLString.append(")");
-	 * 
-	 * //Cerramos la instrucción SQL namesSQL.append(")"); } catch (Exception e) {
-	 * e.printStackTrace(); }
-	 * 
-	 * String sqlfinal = namesSQL.toString() + valueSQLString.toString(); //Exceute
-	 * hacia la db //un recordset
-	 * 
-	 * System.out.println(sqlfinal); return null; }
-	 */
 
 	public T save(T entity) throws DuplicatedException, GenericException {
 		String sql = "INSERT INTO " + this.tabla + this.getSaveSQL();
