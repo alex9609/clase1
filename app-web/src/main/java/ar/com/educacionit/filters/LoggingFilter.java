@@ -1,4 +1,4 @@
-package ar.com.educacionit.services.filters;
+package ar.com.educacionit.filters;
 
 import java.io.IOException;
 import java.util.Arrays;

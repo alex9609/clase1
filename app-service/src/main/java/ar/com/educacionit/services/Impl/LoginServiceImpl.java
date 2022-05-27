@@ -1,8 +1,10 @@
-package ar.com.educacionit.dao.impl;
+package ar.com.educacionit.services.Impl;
 
 import ar.com.educacionit.dao.SociosDao;
 import ar.com.educacionit.dao.UserDao;
 import ar.com.educacionit.dao.exceptions.GenericException;
+import ar.com.educacionit.dao.impl.SocioDaoImpl;
+import ar.com.educacionit.dao.impl.UserDaoImpl;
 import ar.com.educacionit.domain.Socios;
 import ar.com.educacionit.domain.Users;
 import ar.com.educacionit.services.LoginService;
