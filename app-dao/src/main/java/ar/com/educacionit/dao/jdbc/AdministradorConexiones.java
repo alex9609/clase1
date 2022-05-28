@@ -12,10 +12,10 @@ public class AdministradorConexiones {
 		
 		//url, usuario, password, driver
 		//El driver pide el timezone sino no se conecta
-		String url = "jdbc:postgresql://ec2-3-208-121-149.compute-1.amazonaws.com:5432/d1tnit3tds2m1j";
-		String user = "azlqopjoohuzmf";
-		String password ="6ccbc5de0675ce4f7e7a83acb8fe2fbac912417e1b9a6ea8761e4ece516e2590";
-		String driverName = "org.postgresql.Driver";
+		String url = System.getenv("DATABASE_URL");//"jdbc:postgresql://ec2-3-208-121-149.compute-1.amazonaws.com:5432/d1tnit3tds2m1j";
+		String user = System.getenv("SPRING_DATASOURCE_USERNAME");
+		String password =System.getenv("SPRING_DATASOURCE_PASSWORD");
+		String driverName = System.getenv("SPRING_DATASOURCE_DRIVER");
 		
 		//
 		try {
